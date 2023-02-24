@@ -23,14 +23,14 @@ public class ShowListings extends AppCompatActivity {
     public ListView dispArea;
     public ArrayList arrayList;
     public ArrayList arrayList2;
-    public ArrayAdapter arrayAdapter;
-    public ArrayAdapter arrayAdapter2;
+    public ArrayAdapter<String> arrayAdapter;
+    public ArrayAdapter<String> arrayAdapter2;
 
     public static String chosenItem;
 
     @Override
-    protected void onPostCreate(@Nullable Bundle savedInstanceState)  {
-        super.onPostCreate(savedInstanceState);
+    protected void onCreate(@Nullable Bundle savedInstanceState)  {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.show_all_listings);
     //Declare Variables
         dispList = (ListView) findViewById(R.id.displayListings);
@@ -40,7 +40,8 @@ public class ShowListings extends AppCompatActivity {
         arrayList = dbHandler.allData();
         arrayList2 = dbHandler.allData2();
 
-    //Initialize ArrayAdapter
+
+        //Initialize ArrayAdapter
         arrayAdapter = new ArrayAdapter(ShowListings.this, android.R.layout.simple_list_item_1, arrayList);
         arrayAdapter2 = new ArrayAdapter(ShowListings.this, android.R.layout.simple_list_item_1, arrayList2);
 
@@ -50,8 +51,8 @@ public class ShowListings extends AppCompatActivity {
 
         dispList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                chosenItem = dispList.getItemAtPosition(i).toString();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                chosenItem = dispList.getItemAtPosition(position).toString();
                 Intent intent = new Intent(ShowListings.this, PropertyInfo.class);
 
                 startActivity(intent);

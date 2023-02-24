@@ -58,7 +58,7 @@ public class mySQLiteDBHandler extends SQLiteOpenHelper {
     public ArrayList allData()  {
     //Get ReadAble Database
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList arrayList = new ArrayList();
     //Create Cursor to Select All Values
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + prop_list, null);
         cursor.moveToFirst();
@@ -73,7 +73,7 @@ public class mySQLiteDBHandler extends SQLiteOpenHelper {
     public ArrayList allData2()  {
     //Get ReadAble Database
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList arrayList = new ArrayList();
     //Create Cursor to Select All Values
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + prop_list, null);
         cursor.moveToFirst();
