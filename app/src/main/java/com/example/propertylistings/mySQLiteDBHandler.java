@@ -19,7 +19,7 @@ public class mySQLiteDBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db)  {
     //Create Table
-        String createTable = "CREATE TABLE " + prop_list + "(id INTEGER PRIMARY KEY, street TEXT, city TEXT, area TEXT, room INTEGER, bath FLOAT, sqft INTEGER, price INTEGER, hoa INTEGER, tax INTEGER, type TEXT, fav BOOLEAN DEFAULT 0)";
+        String createTable = "CREATE TABLE " + prop_list + "(id INTEGER PRIMARY KEY, street TEXT, city TEXT, area TEXT, room INTEGER, bath FLOAT, sqft INTEGER, price INTEGER, hoa INTEGER, tax INTEGER, type TEXT, fav INTEGER DEFAULT 0)";
         db.execSQL(createTable);
 
     }
@@ -62,7 +62,7 @@ public class mySQLiteDBHandler extends SQLiteOpenHelper {
     //Create Cursor to Select All Values
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + prop_list, null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
+        while(!cursor.isAfterLast()) {
             arrayList.add(cursor.getString(cursor.getColumnIndex("street")));
             cursor.moveToNext();
         }
@@ -77,7 +77,7 @@ public class mySQLiteDBHandler extends SQLiteOpenHelper {
     //Create Cursor to Select All Values
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + prop_list, null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
+        while(!cursor.isAfterLast()) {
             arrayList.add(cursor.getString(cursor.getColumnIndex("area")));
             cursor.moveToNext();
         }

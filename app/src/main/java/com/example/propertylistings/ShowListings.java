@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ShowListings extends AppCompatActivity {
 
@@ -36,12 +35,14 @@ public class ShowListings extends AppCompatActivity {
         dispList = (ListView) findViewById(R.id.displayListings);
         dispArea = (ListView) findViewById(R.id.displayArea);
 
-    //Initialized dbHandler
+    //Initialize dbHandler
+        dbHandler = new mySQLiteDBHandler(ShowListings.this);
+
+    //Add Database Values to ArrayList
         arrayList = dbHandler.allData();
         arrayList2 = dbHandler.allData2();
 
-
-        //Initialize ArrayAdapter
+    //Initialize ArrayAdapter
         arrayAdapter = new ArrayAdapter(ShowListings.this, android.R.layout.simple_list_item_1, arrayList);
         arrayAdapter2 = new ArrayAdapter(ShowListings.this, android.R.layout.simple_list_item_1, arrayList2);
 
