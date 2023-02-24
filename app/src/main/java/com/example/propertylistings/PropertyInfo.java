@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.button.MaterialButton;
 
 import org.w3c.dom.Text;
 
@@ -129,6 +132,24 @@ public class PropertyInfo extends AppCompatActivity {
             }
         });
 
+        ckFav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
+                String addr = ShowListings.chosenItem;
+
+                if(ckFav.isChecked()) {
+                    dbHandler.markFav(addr);
+                    ckFav.setText("unmark as favorite");
+                    Toast.makeText(getApplicationContext(),"Marked as Fav!",Toast.LENGTH_SHORT).show();
+                } else {
+                    dbHandler.unmarkFav(addr);
+                    ckFav.setText("mark as favorite");
+                    Toast.makeText(getApplicationContext(), "Unmarked as Fav.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         //btnLoc will go here
 
     }
@@ -155,6 +176,7 @@ public class PropertyInfo extends AppCompatActivity {
 
                 if (cursor.getInt(cursor.getColumnIndex("fav")) != 0)  {
                     ckFav.setText("unmark as favorite");
+                    ckFav.setChecked(true);
                 }
                 else {
                     ckFav.setText("mark as favorite");
