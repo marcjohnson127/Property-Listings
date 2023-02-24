@@ -2,8 +2,10 @@ package com.example.propertylistings;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +25,14 @@ public class MainActivity extends AppCompatActivity {
         addNewList = (Button) findViewById(R.id.addNewListing);
 
         dbHandler = new mySQLiteDBHandler(MainActivity.this);
+
+        addNewList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AddNewList.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
