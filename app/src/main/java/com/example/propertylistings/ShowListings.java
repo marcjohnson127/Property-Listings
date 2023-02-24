@@ -23,8 +23,8 @@ public class ShowListings extends AppCompatActivity {
     public ListView dispArea;
     public ArrayList arrayList;
     public ArrayList arrayList2;
-    public ArrayAdapter<String> arrayAdapter;
-    public ArrayAdapter<String> arrayAdapter2;
+    public ArrayAdapter arrayAdapter;
+    public ArrayAdapter arrayAdapter2;
 
     public static String chosenItem;
 
