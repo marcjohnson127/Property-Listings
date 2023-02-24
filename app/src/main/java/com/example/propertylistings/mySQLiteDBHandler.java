@@ -19,7 +19,7 @@ public class mySQLiteDBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db)  {
     //Create Table
-        String createTable = "CREATE TABLE " + prop_list + "(id INTEGER PRIMARY KEY, street TEXT, city TEXT, area TEXT, room INTEGER, bath FLOAT, sqft INTEGER, price INTEGER, hoa INTEGER, tax INTEGER, type TEXT, fav INTEGER DEFAULT 0)";
+        String createTable = "CREATE TABLE " + prop_list + "(id INTEGER PRIMARY KEY, street TEXT, city TEXT, area TEXT, room INTEGER, bath FLOAT, sqft INTEGER, price INTEGER, hoa INTEGER, tax INTEGER, type TEXT, fav BOOLEAN DEFAULT 0)";
         db.execSQL(createTable);
 
     }
