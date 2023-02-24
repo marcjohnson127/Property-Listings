@@ -26,6 +26,8 @@
                 android:value="" />
         </activity>
         <activity android:name="com.example.propertylistings.AddNewList" />
+        <activity android:name="com.example.propertylistings.ShowListings" />
+        <activity android:name="com.example.propertylistings.PropertyInfo" />
     </application>
 
 </manifest>

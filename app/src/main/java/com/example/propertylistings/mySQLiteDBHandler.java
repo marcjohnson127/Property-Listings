@@ -32,6 +32,7 @@ public class mySQLiteDBHandler extends SQLiteOpenHelper {
 
     }
 
+//Function to Add New Listing
     public boolean addData(String street, String city, String area, int room, float bath, int sqft, int price, int hoa, int tax, String type)  {
     //Get WriteAble Database
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();

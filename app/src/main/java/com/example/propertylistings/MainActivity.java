@@ -1,6 +1,7 @@
 package com.example.propertylistings;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.ShowableListMenu;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -26,10 +27,19 @@ public class MainActivity extends AppCompatActivity {
 
         dbHandler = new mySQLiteDBHandler(MainActivity.this);
 
+    //addNewList Button Handler
         addNewList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, AddNewList.class);
+                startActivity(intent);
+            }
+        });
+
+        go2List.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ShowListings.class);
                 startActivity(intent);
             }
         });
