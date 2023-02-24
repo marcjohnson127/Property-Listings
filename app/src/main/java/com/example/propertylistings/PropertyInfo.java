@@ -135,9 +135,16 @@ public class PropertyInfo extends AppCompatActivity {
         ckFav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
+                String addr = ShowListings.chosenItem;
+
                 if(ckFav.isChecked()) {
+                    dbHandler.markFav(addr);
+                    ckFav.setText("unmark as favorite");
                     Toast.makeText(getApplicationContext(),"Marked as Fav!",Toast.LENGTH_SHORT).show();
                 } else {
+                    dbHandler.unmarkFav(addr);
+                    ckFav.setText("mark as favorite");
                     Toast.makeText(getApplicationContext(), "Unmarked as Fav.", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -169,7 +176,7 @@ public class PropertyInfo extends AppCompatActivity {
 
                 if (cursor.getInt(cursor.getColumnIndex("fav")) != 0)  {
                     ckFav.setText("unmark as favorite");
-                    ckFav.isChecked();
+                    ckFav.setChecked(true);
                 }
                 else {
                     ckFav.setText("mark as favorite");

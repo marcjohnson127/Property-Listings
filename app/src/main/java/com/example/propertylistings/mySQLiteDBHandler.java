@@ -19,7 +19,7 @@ public class mySQLiteDBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db)  {
     //Create Table
-        String createTable = "CREATE TABLE " + prop_list + "(id INTEGER PRIMARY KEY, street TEXT, city TEXT, area TEXT, room INTEGER, bath FLOAT, sqft INTEGER, price INTEGER, hoa INTEGER, tax INTEGER, type TEXT, fav BOOLEAN DEFAULT 0)";
+        String createTable = "CREATE TABLE " + prop_list + "(id INTEGER PRIMARY KEY, street TEXT, city TEXT, area TEXT, room INTEGER, bath FLOAT, sqft INTEGER, price INTEGER, hoa INTEGER, tax INTEGER, type TEXT, fav BOOLEAN DEFAULT false)";
         db.execSQL(createTable);
 
     }
@@ -101,14 +101,14 @@ public class mySQLiteDBHandler extends SQLiteOpenHelper {
 
     public void markFav(String addr)  {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        String markFav = "UPDATE " + MARKET + " SET fav = true WHERE street = '" + addr + "'";
+        String markFav = "UPDATE " + prop_list + " SET fav = true WHERE street = '" + addr + "'";
         sqLiteDatabase.execSQL(markFav);
 
     }
 
     public void unmarkFav(String addr)  {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        String unmarkFav = "UPDATE " + MARKET + " SET fav = false WHERE street = '" + addr + "'";
+        String unmarkFav = "UPDATE " + prop_list + " SET fav = false WHERE street = '" + addr + "'";
         sqLiteDatabase.execSQL(unmarkFav);
 
     }
