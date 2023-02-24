@@ -153,7 +153,7 @@ public class PropertyInfo extends AppCompatActivity {
                 txtTax.setText(cursor.getString(cursor.getColumnIndex("tax")));
                 txtType.setText(cursor.getString(cursor.getColumnIndex("type")));
 
-                if (cursor.getString(cursor.getColumnIndex("fav")) == true)  {
+                if (cursor.getInt(cursor.getColumnIndex("fav")) != 0)  {
                     ckFav.setText("unmark as favorite");
                 }
                 else {

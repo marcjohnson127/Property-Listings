@@ -54,6 +54,7 @@ public class mySQLiteDBHandler extends SQLiteOpenHelper {
 
     }
 
+//Array Lists to display data on Property Info page
     public ArrayList allData()  {
     //Get ReadAble Database
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
