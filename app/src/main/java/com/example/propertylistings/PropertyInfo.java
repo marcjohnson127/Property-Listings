@@ -150,7 +150,13 @@ public class PropertyInfo extends AppCompatActivity {
             }
         });
 
-        //btnLoc will go here
+        btnLoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PropertyInfo.this, MapFrag.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
