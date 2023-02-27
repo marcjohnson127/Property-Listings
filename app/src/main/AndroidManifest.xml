@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PropertyListings"
         tools:targetApi="31">
+        <activity
+            android:name=".MapFrag"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -25,9 +36,14 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name="com.example.propertylistings.AddNewList" />
-        <activity android:name="com.example.propertylistings.ShowListings" />
-        <activity android:name="com.example.propertylistings.PropertyInfo" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBIR9TUOSezNpqZuaPCTTD3EXnaFd-Zyaw" />
+
+        <activity android:name=".AddNewList" />
+        <activity android:name=".ShowListings" />
+        <activity android:name=".PropertyInfo" />
     </application>
 
 </manifest>

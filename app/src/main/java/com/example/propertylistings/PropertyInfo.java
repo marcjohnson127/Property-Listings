@@ -47,6 +47,8 @@ public class PropertyInfo extends AppCompatActivity {
 
     public static DecimalFormat d2curr = new DecimalFormat("###,###.##");
 
+    public static String chosenAddress;
+
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState)  {
         super.onPostCreate(savedInstanceState);
@@ -150,7 +152,13 @@ public class PropertyInfo extends AppCompatActivity {
             }
         });
 
-        //btnLoc will go here
+        btnLoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PropertyInfo.this, MapFrag.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -173,6 +181,8 @@ public class PropertyInfo extends AppCompatActivity {
                 txtHOA.setText(cursor.getString(cursor.getColumnIndex("hoa")));
                 txtTax.setText(cursor.getString(cursor.getColumnIndex("tax")));
                 txtType.setText(cursor.getString(cursor.getColumnIndex("type")));
+
+                chosenAddress = txtStreet.getText().toString() + " " + txtCity.getText().toString();
 
                 if (cursor.getInt(cursor.getColumnIndex("fav")) != 0)  {
                     ckFav.setText("unmark as favorite");
